@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -7,13 +8,13 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'project',
-            message: 'What is the name of your project? (Required)',
+            name: 'title',
+            message: 'What is the title of your project? (Required)',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter your project name!');
+                    console.log('Please give your project a title!');
                     return false;
                 }
             }
