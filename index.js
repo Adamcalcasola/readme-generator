@@ -20,31 +20,52 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub Username (Required)',
-            validate: nameInput => {
-                if (nameInput) {
+            name: 'description',
+            message: 'Describe what your project does. (Required)',
+            validate: description => {
+                if (description) {
                     return true;
                 } else {
-                    console.log('Please enter your GitHub Username!');
+                    console.log('Please enter a brief description of your project!');
+                    return false;
+                }
+            }
+        }
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'How do you install your project?',
+            validate: installation => {
+                if (installation) {
+                    return true;
+                } else {
+                    console.log('Please enter instructions for installation!');
                     return false;
                 }
             }
         },
         {
-            type: 'confirm',
-            name: 'confirmAbout',
-            message: 'Would you like to enter some information about yourself for an "About" section?',
-            default: true
-        },
-        {
             type: 'input',
-            name: 'about',
-            message: 'Provide some information about yourself:',
-            when: ({confirmAbout}) => {
-                if (confirmAbout) {
+            name: 'usage',
+            message: 'How do you use your projects application?',
+            when: ({usage}) => {
+                if (usage) {
                     return true;
                 } else {
+                    console.log('Please enter instructions for usage!');
+                    return false;
+                }
+            }
+        }
+        {
+            type: 'input',
+            name: 'credits',
+            message: 'List your collaborators.',
+            when: ({credits}) => {
+                if (credits) {
+                    return true;
+                } else {
+                    console.log('Please enter instructions for usage!');
                     return false;
                 }
             }
