@@ -31,7 +31,7 @@ const questions = () => {
                     return false;
                 }
             }
-        }
+        },
         {
             type: 'input',
             name: 'installation',
@@ -49,7 +49,7 @@ const questions = () => {
             type: 'input',
             name: 'usage',
             message: 'How do you use your projects application?',
-            when: ({usage}) => {
+            validate: usage => {
                 if (usage) {
                     return true;
                 } else {
@@ -57,12 +57,12 @@ const questions = () => {
                     return false;
                 }
             }
-        }
+        },
         {
             type: 'input',
             name: 'credits',
             message: 'List your collaborators.',
-            when: ({credits}) => {
+            validate: credits => {
                 if (credits) {
                     return true;
                 } else {
@@ -70,15 +70,72 @@ const questions = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'What about the tests?',
+            validate: tests => {
+                if (tests) {
+                    return true;
+                } else {
+                    console.log('Please tell us about the test!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'questions',
+            message: 'What about the questions?',
+            validate: questions => {
+                if (questions) {
+                    return true;
+                } else {
+                    console.log('No questions!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Choose a lisense from the list:',
+            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib']
         }
     ]) 
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) { // WHY does it pass a fileName arg into the function?
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok:true,
+                message: 'File created!'
+            })
+        })
+    })
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    questions()
+        .then(data => {
+            return generateMarkdown(data);
+        })
+        .then(markdown => {
+            return writeToFile(markdown);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
 
 // Function call to initialize app
 init();
+
