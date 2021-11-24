@@ -59,6 +59,12 @@ const questions = () => {
             }
         },
         {
+            type: 'list',
+            name: 'license',
+            message: 'Choose a lisense from the list:',
+            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib']
+        },
+        {
             type: 'input',
             name: 'credits',
             message: 'List your collaborators.',
@@ -96,14 +102,8 @@ const questions = () => {
                     return false;
                 }
             }
-        },
-        {
-            type: 'list',
-            name: 'license',
-            message: 'Choose a lisense from the list:',
-            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib']
         }
-    ]) 
+    ])
 };
 
 // TODO: Create a function to write README file
@@ -126,6 +126,7 @@ function writeToFile(data) { // WHY does it pass a fileName arg into the functio
 function init() {
     questions()
         .then(data => {
+            console.log(data.license);
             return generateMarkdown(data);
         })
         .then(markdown => {
