@@ -1,4 +1,4 @@
-# Project Title: ADSfk ASdkf ASDFK
+# README Generator
 
 ## Table of Contents
 - [Description](#description)

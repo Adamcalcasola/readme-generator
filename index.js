@@ -22,7 +22,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'description',
-            message: 'Describe what your project does. (Required)',
+            message: 'Please describe your project and what it does. (Required)',
             validate: description => {
                 if (description) {
                     return true;
@@ -35,7 +35,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'installation',
-            message: 'How do you install your project?',
+            message: 'Please describe the requirements and steps to install your project?',
             validate: installation => {
                 if (installation) {
                     return true;
@@ -62,17 +62,30 @@ const questions = () => {
             type: 'list',
             name: 'license',
             message: 'Choose a lisense from the list:',
-            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib']
+            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib', 'none']
         },
         {
             type: 'input',
-            name: 'credits',
-            message: 'List your collaborators.',
-            validate: credits => {
-                if (credits) {
+            name: 'contributing',
+            message: "Please provide guidelines for how to contribute to your project. (Required)",
+            validate: contrib => {
+                if (contrib) {
                     return true;
                 } else {
-                    console.log('Please enter instructions for usage!');
+                    console.log('Please provide guidelines for contributing!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'repo',
+            message: "Please provide your project's Github repository. (Required)",
+            validate: repo => {
+                if (repo) {
+                    return true;
+                } else {
+                    console.log('Please enter a repository!');
                     return false;
                 }
             }
@@ -80,25 +93,25 @@ const questions = () => {
         {
             type: 'input',
             name: 'tests',
-            message: 'What about the tests?',
+            message: 'Please provide instructions for how to test your program.',
             validate: tests => {
                 if (tests) {
                     return true;
                 } else {
-                    console.log('Please tell us about the test!');
+                    console.log('If there is no testing available, enter none!');
                     return false;
                 }
             }
         },
         {
             type: 'input',
-            name: 'questions',
-            message: 'What about the questions?',
-            validate: questions => {
-                if (questions) {
+            name: 'email',
+            message: 'Please provide a contact email? (Required)',
+            validate: email => {
+                if (email) {
                     return true;
                 } else {
-                    console.log('No questions!');
+                    console.log('Please provide an email!');
                     return false;
                 }
             }
@@ -109,7 +122,7 @@ const questions = () => {
 // TODO: Create a function to write README file
 function writeToFile(data) { // WHY does it pass a fileName arg into the function?
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', data, err => {
+        fs.writeFile(`./dist/README.md`, data, err => {
             if (err) {
                 reject(err);
                 return;
@@ -126,7 +139,6 @@ function writeToFile(data) { // WHY does it pass a fileName arg into the functio
 function init() {
     questions()
         .then(data => {
-            console.log(data.license);
             return generateMarkdown(data);
         })
         .then(markdown => {
