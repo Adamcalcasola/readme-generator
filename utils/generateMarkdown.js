@@ -134,7 +134,8 @@ function generateMarkdown(data) {
 
   ## Contributing:
   ${data.contributing}
-  ${data.repo}
+  
+  https://github.com/${data.repo}
 
   ## Tests:
   ${data.tests}
