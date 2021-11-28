@@ -21,11 +21,14 @@
   ## Usage:
   After being prompted a series of questions, the user must provide the details that are being asked about their project. The user is not allowed to omit any details for any of the sections. If your project does not have a license, you can select none and that section and the badge will be omitted from the markdown. The markdown file will be saved in the dist folder inside of the project folder.
 
-  [![Tutorial](tutorial.mp4)](tutorial)
+  link for tutorial that demonstrates how to use the application:
+  https://watch.screencastify.com/v/IXa6eyy3uLB055Bg8BEi
+
+  there is also an MP4 file saved in the main folder in the Github repo under the name tutorial.mp4
 
   ## Contributing:
   Please go to the Github repository provided to contribute to this project.
-  
+
   https://github.com/Adamcalcasola/readme-generator
 
   ## Tests:
