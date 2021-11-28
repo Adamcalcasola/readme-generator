@@ -35,7 +35,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'installation',
-            message: 'Please describe the requirements and steps to install your project?',
+            message: 'Please describe the requirements and steps to install your project? (Required)',
             validate: installation => {
                 if (installation) {
                     return true;
@@ -48,7 +48,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'usage',
-            message: 'How do you use your projects application?',
+            message: 'How do you use your projects application? (Required)',
             validate: usage => {
                 if (usage) {
                     return true;
@@ -62,7 +62,7 @@ const questions = () => {
             type: 'list',
             name: 'license',
             message: 'Choose a lisense from the list:',
-            choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Perl', 'Sil', 'Unlicense', 'Zlib', 'none']
+            choices: ['none', 'Apache', 'Boost', 'BSD 2', 'BSD 3', 'Eclipse', 'GPLv3', 'GPL v2', 'AGPL v3', 'LGPL v3', 'FDL v1.3', 'Hippocratic License 2.1', 'Hippocratic License 3.0', 'IBM', 'ISC', 'MIT', 'Mozilla', 'ODC BY', 'ODbl', 'PDDL', 'Perl', 'Artistic 2.0', 'Sil', 'Unlicense', 'WTFPL', 'Zlib']
         },
         {
             type: 'input',
@@ -93,7 +93,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'tests',
-            message: 'Please provide instructions for how to test your program.',
+            message: 'Please provide instructions for how to test your program. (Required)',
             validate: tests => {
                 if (tests) {
                     return true;
@@ -122,7 +122,7 @@ const questions = () => {
 // TODO: Create a function to write README file
 function writeToFile(data) { // WHY does it pass a fileName arg into the function?
     return new Promise((resolve, reject) => {
-        fs.writeFile(`./dist/README.md`, data, err => {
+        fs.writeFile(`./README.md`, data, err => {
             if (err) {
                 reject(err);
                 return;
