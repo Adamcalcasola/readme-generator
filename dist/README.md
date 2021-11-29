@@ -1,10 +1,10 @@
 
-  # Title of Project
+  # The Title of Project
   
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
   ## Description: 
-  description of project.
+  a brief description of your project
   
   ## Contents
   - [Description](#description)
@@ -16,23 +16,22 @@
   - [Questions](#questions)
   
   ## Installation: 
-  requirements to install your project
+  requirements to install project
 
   ## Usage:
-  how to use your application
-
-  [![Tutorial](tutorial.mp4)](tutorial)
+  how to use the application
 
   ## License
-      This project is licensed under Apache    
+This project is licensed under Apache    
       
 
   ## Contributing:
-  guidelines to how to contribute the project
-  Adamcalcasola/project-repo
+  requirments to contribute to the project
+  
+  https://github.com/Adamcalcasola/project-repo
 
   ## Tests:
-  no testing available
+  none available
   
   ## Questions:
   If you have questions about this project, please contact at:

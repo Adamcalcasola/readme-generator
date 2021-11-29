@@ -99,8 +99,8 @@ function renderLicenseSection(license) {
   if (license === 'none') {
     return '';
   } else {
-    return `## License
-      This project is licensed under ${license}    
+    return `## License:
+This project is licensed under ${license}    
       `
   }
 }
