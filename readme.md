@@ -26,7 +26,7 @@
 
   there is also an MP4 file saved in the main folder in the Github repo under the name tutorial.mp4
 
-  ![readme-generator-screenshot](/media/readme-generator-screenshots.png?raw=true "screenshot")
+  ![readme-generator-screenshot](/media/readme-generator-screenshot.png?raw=true "screenshot")
 
   ## Contributing:
   Please go to the Github repository provided to contribute to this project.
