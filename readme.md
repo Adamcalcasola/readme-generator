@@ -24,7 +24,7 @@
   link for tutorial that demonstrates how to use the application:
   https://watch.screencastify.com/v/XWIDzxB1A84JpgsktkT2
 
-  there is also an MP4 file saved in the main folder in the Github repo under the name tutorial.mp4
+  there is also an MP4 file saved in the media folder in the Github repo under the name tutorial.mp4
 
   ![readme-generator-screenshot](/media/readme-generator-screenshot.png?raw=true "screenshot")
 
